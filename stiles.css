@@ -31,3 +31,28 @@
     color: #fff;
     font-weight: bold;
 }
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #c90b0b;
+    padding: 10px;
+    color: #fff;
+}
+
+.logo{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navlinks{
+    display: flex;
+    gap: 20px;
+}
+
+.navlinks a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
