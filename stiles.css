@@ -6,8 +6,28 @@
 /*usos de flex box */
 .contenedor{
     display: flex;
+    justify-content: center;
+    align-items: center;
     background: #229cba;
-    padding: 10px;
-    gap: 10px;
-    height: 200px;
+    flex-direction: column;
+    padding: 60px;
+    gap: 5px;
+    height: 600px;
+}
+
+.miranda-sans {
+    font-family: "Miranda Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.caja{
+    display: flex;
+    background: #991818;
+    padding: 80px;
+    height: 100px;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
 }
