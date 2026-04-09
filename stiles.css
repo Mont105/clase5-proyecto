@@ -10,7 +10,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Miranda Sans", sans-serif;
-    background: url('./images/nature.jpeg'), #229cba; /* Asegúrate de que la ruta sea correcta */
+    background: url('./images/nature.jpeg'), #229cba;
+    /* Asegúrate de que la ruta sea correcta */
     background-size: cover;
     background-position: center;
 }
@@ -24,7 +25,8 @@ body {
     flex-direction: column;
     padding: 60px;
     gap: 5px;
-    height: 100%; /* Ajustar al 100% del contenedor */
+    height: 100%;
+    /* Ajustar al 100% del contenedor */
 }
 
 /* Estilo de la barra de navegación */
@@ -36,7 +38,8 @@ body {
     padding: 10px 20px;
     color: #fff;
     width: 100%;
-    position: fixed; /* Fija la barra de navegación en la parte superior */
+    position: fixed;
+    /* Fija la barra de navegación en la parte superior */
     top: 0;
     left: 0;
     z-index: 1000;
@@ -63,7 +66,8 @@ body {
     display: flex;
     background: #991818;
     padding: 40px;
-    height: auto; /* Ajustar automáticamente al contenido */
+    height: auto;
+    /* Ajustar automáticamente al contenido */
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -73,14 +77,13 @@ body {
 
 /* Estilo del formulario */
 .form-container {
-    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #5900ff;
+    padding: 10px 20px;
     width: 100%;
-    padding: 40px;
-    box-shadow: 0 0 10px black;
-    background: rgba(34, 156, 186, 0.8);
-    border-radius: 30px;
-    text-align: center;
-    backdrop-filter: blur(20px);
+    position: fixed;
 }
 
 .form-header {
@@ -160,4 +163,39 @@ input::placeholder {
     text-decoration: none;
     color: white;
     cursor: pointer;
+}
+
+.imagen-container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(34, 156, 186, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    backdrop-filter: blur(20px);
+}
+
+.imagen-container img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.relleno {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    background: #5900ff;
+    padding: 10px 20px;
+    width: 100%;
+    position: down;
 }
