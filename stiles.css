@@ -1,10 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/*usos de flex box */
-.contenedor{
+
+/* Configuración general */
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Miranda Sans", sans-serif;
+    background: url('./images/nature.jpeg'), #229cba; /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo del contenedor principal */
+.contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,47 +24,140 @@
     flex-direction: column;
     padding: 60px;
     gap: 5px;
-    height: 600px;
+    height: 100%; /* Ajustar al 100% del contenedor */
 }
 
-.miranda-sans {
-    font-family: "Miranda Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: normal;
-    font-style: normal;
-  }
-
-.caja{
-    display: flex;
-    background: #991818;
-    padding: 80px;
-    height: 100px;
-    justify-content: center;
-    color: #fff;
-    font-weight: bold;
-}
-
-.navbar{
+/* Estilo de la barra de navegación */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #c90b0b;
-    padding: 10px;
+    padding: 10px 20px;
     color: #fff;
+    width: 100%;
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.logo{
+.logo {
     font-size: 32px;
     font-weight: bold;
 }
 
-.navlinks{
+.navlinks {
     display: flex;
     gap: 20px;
 }
 
-.navlinks a{
+.navlinks a {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Estilo de las cajas */
+.caja {
+    display: flex;
+    background: #991818;
+    padding: 40px;
+    height: auto; /* Ajustar automáticamente al contenido */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* Estilo del formulario */
+.form-container {
+    max-width: 320px;
+    width: 100%;
+    padding: 40px;
+    box-shadow: 0 0 10px black;
+    background: rgba(34, 156, 186, 0.8);
+    border-radius: 30px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    padding: 15px 20px;
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid white;
+    box-shadow: 0 0 5px black;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    outline: none;
+    color: black;
+}
+
+.input-container input:hover {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+input::placeholder {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.submit {
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+    font-family: "Miranda Sans", sans-serif;
+    font-weight: bold;
+    background: white;
+    color: #229cba;
+    cursor: pointer;
+}
+
+.submit:hover {
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.8);
+}
+
+.signup {
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.signup a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
