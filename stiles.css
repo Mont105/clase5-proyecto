@@ -79,11 +79,11 @@ body {
 .form-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     background: #5900ff;
-    padding: 10px 20px;
+    padding: 10px 30px;
     width: 100%;
-    position: fixed;
+    position: center;
 }
 
 .form-header {
