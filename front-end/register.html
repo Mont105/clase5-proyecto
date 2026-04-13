@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stiles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Miranda+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h3>Registro</h3>
+        </div>
+        <div class="input-container">
+            <input id="reg-username" type="text" placeholder="Usuario" required> 
+            <input id="reg-email" type="email" placeholder="Correo Electrónico" required> 
+            <input id="reg-password" type="password" placeholder="Crear Contraseña" required>
+            <input id="reg-confirm-password" type="password" placeholder="Re-Escribir Contraseña" required>     
+        <div class="botton">
+            <button id="btn-register" class="submit" type="button">REGISTRARSE</button> 
+        </div>  
+        <p id="reg-message" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+        <div class="signup">
+             ya tienes una cuenta? <a href="login.html"> inicio de sesion</a>  
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById('btn-register').addEventListener('click', async function () {
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+            const messageEl = document.getElementById('reg-message');
+
+            // Limpiar mensaje anterior
+            messageEl.textContent = '';
+            messageEl.style.color = '';
+
+            try {
+                const response = await fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password,
+                        confirm_password: confirmPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    messageEl.style.color = '#4CAF50';
+                    messageEl.textContent = data.message;
+                    // Limpiar los campos después del registro exitoso
+                    document.getElementById('reg-username').value = '';
+                    document.getElementById('reg-email').value = '';
+                    document.getElementById('reg-password').value = '';
+                    document.getElementById('reg-confirm-password').value = '';
+                    // Redirigir al login después de 2 segundos
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                } else {
+                    messageEl.style.color = '#f44336';
+                    messageEl.textContent = data.message;
+                }
+            } catch (error) {
+                messageEl.style.color = '#f44336';
+                messageEl.textContent = 'Error de conexión con el servidor. Asegúrate de que el backend esté corriendo.';
+            }
+        });
+    </script>
+</body>
+</html>
