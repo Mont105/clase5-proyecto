@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stiles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Miranda+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <title>Restablecer Contraseña</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h3>Restablecer Contraseña</h3>
+        </div>
+        <div class="input-container">
+            <input id="reset-username" type="text" placeholder="Usuario" required>
+            <input id="reset-email" type="email" placeholder="Correo electrónico" required>
+            <input id="reset-new-password" type="password" placeholder="Nueva contraseña" required>
+            <input id="reset-confirm-password" type="password" placeholder="Confirmar nueva contraseña" required>
+            <div class="botton">
+                <button id="btn-reset" class="submit" type="button">Restablecer Contraseña</button>
+            </div>
+            <p id="reset-message" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+            <div class="signup">
+                ¿Recordaste tu contraseña? <a href="login.html">Iniciar Sesión</a>
+            </div>
+        </div>
+    </div>
+    <div class="relleno">
+        <span>🔑 Ingresa tu usuario y correo para restablecer tu contraseña</span>
+    </div>
+
+    <script>
+        document.getElementById('btn-reset').addEventListener('click', async function () {
+            const username = document.getElementById('reset-username').value;
+            const email = document.getElementById('reset-email').value;
+            const newPassword = document.getElementById('reset-new-password').value;
+            const confirmPassword = document.getElementById('reset-confirm-password').value;
+            const messageEl = document.getElementById('reset-message');
+
+            // Limpiar mensaje anterior
+            messageEl.textContent = '';
+            messageEl.style.color = '';
+
+            try {
+                const response = await fetch('http://localhost:5000/reset-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        new_password: newPassword,
+                        confirm_password: confirmPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    messageEl.style.color = '#4CAF50';
+                    messageEl.textContent = data.message;
+                    // Redirigir al login después de 2 segundos
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                } else {
+                    messageEl.style.color = '#f44336';
+                    messageEl.textContent = data.message;
+                }
+            } catch (error) {
+                messageEl.style.color = '#f44336';
+                messageEl.textContent = 'Error de conexión con el servidor. Asegúrate de que el backend esté corriendo.';
+            }
+        });
+    </script>
+</body>
+
+</html>

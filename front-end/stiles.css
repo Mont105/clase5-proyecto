@@ -199,3 +199,14 @@ input::placeholder {
     width: 100%;
     position: fixed;
 }
+
+.pprinci {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #229cba;
+    flex-direction: column;
+    padding: 60px;
+    gap: 5px;
+    height: 100%;
+}

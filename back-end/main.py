@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, jsonify, send_from_directory
 from register import register_user
+from reset_password import reset_user_password
 from loggin import load_users, verify_password
 
 # Ruta a la carpeta del front-end
@@ -80,6 +81,28 @@ def api_login():
         return jsonify({"success": True, "message": f"¡Bienvenido, {username}!"}), 200
     else:
         return jsonify({"success": False, "message": "Contraseña incorrecta."}), 401
+
+
+@app.route('/reset-password', methods=['POST'])
+def api_reset_password():
+    """
+    Endpoint para restablecer la contraseña de un usuario.
+    Espera un JSON con: username, email, new_password, confirm_password
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"success": False, "message": "No se recibieron datos."}), 400
+
+    username = data.get('username', '')
+    email = data.get('email', '')
+    new_password = data.get('new_password', '')
+    confirm_password = data.get('confirm_password', '')
+
+    result = reset_user_password(username, email, new_password, confirm_password)
+
+    status_code = 200 if result["success"] else 400
+    return jsonify(result), status_code
 
 
 if __name__ == '__main__':
