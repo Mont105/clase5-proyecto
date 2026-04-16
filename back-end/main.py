@@ -9,9 +9,6 @@ FRONTEND_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'f
 
 app = Flask(__name__, static_folder=FRONTEND_DIR)
 
-
-# ==================== SERVIR ARCHIVOS DEL FRONTEND ====================
-
 @app.route('/')
 def serve_index():
     """Sirve la página principal."""
@@ -23,8 +20,6 @@ def serve_static(filename):
     """Sirve archivos estáticos del front-end (HTML, CSS, JS, imágenes)."""
     return send_from_directory(FRONTEND_DIR, filename)
 
-
-# ==================== API ENDPOINTS ====================
 
 @app.route('/register', methods=['POST'])
 def api_register():
@@ -78,7 +73,7 @@ def api_login():
     # Verificar la contraseña
     user_data = users[username]
     if verify_password(user_data["salt"], user_data["hash"], password):
-        return jsonify({"success": True, "message": f"¡Bienvenido, {username}!"}), 200
+        return jsonify({"success": True, "message": f"¡Bienvenido, {username}!", "username": username}), 200
     else:
         return jsonify({"success": False, "message": "Contraseña incorrecta."}), 401
 
@@ -104,7 +99,7 @@ def api_reset_password():
     status_code = 200 if result["success"] else 400
     return jsonify(result), status_code
 
-
+# pa ver si funca o no funca
 if __name__ == '__main__':
     print("=" * 50)
     print("  Servidor Backend - Sistema de Registro y Login")

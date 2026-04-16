@@ -64,6 +64,8 @@
                 if (data.success) {
                     messageEl.style.color = '#4CAF50';
                     messageEl.textContent = data.message;
+                    // Guardar el nombre de usuario en localStorage
+                    localStorage.setItem('username', data.username);
                     // Redirigir al index después de 2 segundos
                     setTimeout(() => {
                         window.location.href = 'Pprici.html';
