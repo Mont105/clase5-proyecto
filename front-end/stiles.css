@@ -307,3 +307,193 @@ input::placeholder {
     padding: 0 9px;
     margin-bottom: 9px;
 }
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .navlinks {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .contenedor {
+        padding: 80px 20px 20px;
+    }
+
+    .pprinci {
+        padding: 80px 20px 20px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+    }
+
+    .input-container input {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+
+    .caja {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .imagen-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .relleno {
+        position: relative;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    /* Servicios page */
+    .backgroundserv {
+        padding: 30px 15px;
+    }
+
+    .navbarserv {
+        flex-direction: column;
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    .srv-layout {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .srv-principal {
+        width: 100%;
+    }
+
+    .srv-secundarios {
+        width: 100%;
+    }
+
+    .S1 {
+        padding: 25px 20px;
+        font-size: 1.1rem;
+    }
+
+    .S2,
+    .S3,
+    .S4 {
+        padding: 14px 18px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .navlinks {
+        gap: 8px;
+        font-size: 0.85rem;
+    }
+
+    .contenedor {
+        padding: 70px 10px 10px;
+    }
+
+    .pprinci {
+        padding: 70px 10px 10px;
+    }
+
+    .form-container {
+        padding: 15px 10px;
+    }
+
+    .form-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .input-container input {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+
+    .submit {
+        padding: 12px;
+        font-size: 0.85rem;
+        border-radius: 15px;
+    }
+
+    .signup {
+        font-size: 12px;
+    }
+
+    .forgot-password a {
+        font-size: 12px;
+    }
+
+    .caja {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+
+    .imagen-container {
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .imagen-container img {
+        max-height: 300px;
+    }
+
+    .relleno span {
+        font-size: 0.8rem;
+    }
+
+    /* Servicios phone */
+    .backgroundserv {
+        padding: 20px 10px;
+    }
+
+    .srv-subtitulo {
+        font-size: 0.9rem;
+    }
+
+    .S1 {
+        padding: 20px 15px;
+        font-size: 1rem;
+    }
+
+    .S2,
+    .S3,
+    .S4 {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+
+    .srv-principal>span {
+        font-size: 0.85rem;
+        max-width: 100%;
+    }
+
+    .srv-secundarios>span {
+        font-size: 0.8rem;
+    }
+}
